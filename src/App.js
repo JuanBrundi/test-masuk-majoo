@@ -1,6 +1,8 @@
+import TodoList from "./components/TodoList";
+
 function App() {
   return (
-    <div>THIS IS AMERICA</div>
+    <div><TodoList /></div>
   );
 }
 
