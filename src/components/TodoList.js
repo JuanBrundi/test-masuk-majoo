@@ -11,7 +11,7 @@ import RenderCreateButton from "./CreateButton";
 
 const TodoList = () => {
   const dispatch = useDispatch();
-  const { loading, data, error, editedData, finishedList, unfinishedList } = useSelector(state => state.todoList)
+  const { loading, finishedList, unfinishedList } = useSelector(state => state.todoList)
 
   useEffect(() => {
     dispatch(getData())

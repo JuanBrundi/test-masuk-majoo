@@ -6,7 +6,8 @@ import {
   GET_TODO_LIST,
   CREATE_NEW_LIST,
   REMOVE_TODO_LIST,
-  GET_LIST_BY_ID
+  GET_LIST_BY_ID,
+  EDIT_TODO
 } from "./actions";
 
 export {
@@ -22,5 +23,6 @@ export {
   GET_TODO_LIST,
   CREATE_NEW_LIST,
   REMOVE_TODO_LIST,
-  GET_LIST_BY_ID
+  GET_LIST_BY_ID,
+  EDIT_TODO
 };

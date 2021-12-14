@@ -17,33 +17,53 @@ function RenderModal(props) {
     >
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          Add new todo
+          {props.modalTitle}
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <RenderListForm onHide={props.onHide} />
+        <RenderListForm
+          actions={props.actions}
+          confirmationText={props.text}
+          actionName={props.actionName}
+          onHide={props.onHide}
+          idEdit={props.idEdit}
+        />
       </Modal.Body>
     </Modal>
   );
 }
 
-function FormModalWrapper({ text, id }) {
+function FormModalWrapper({
+  text,
+  id,
+  modalTitle,
+  actionName,
+  actions,
+  idEdit
+}) {
   const dispatch = useDispatch()
 
   const [modalShow, setModalShow] = useState(false);
 
   return (
     <>
-      <Button text={text} onClick={() => {
-        console.log(id, "ID NO BOSSSSSS")
-        if (id) {
-          dispatch(getListById(id))
-        }
-        setModalShow(true)
-      }} />
+      <Button
+        text={actionName}
+        onClick={() => {
+          if (id) {
+            dispatch(getListById(id))
+          }
+          setModalShow(true)
+        }}
+      />
       <RenderModal
+        modalTitle={modalTitle}
         show={modalShow}
         onHide={() => setModalShow(false)}
+        actionName={actionName}
+        text={text}
+        actions={actions}
+        idEdit={idEdit}
       />
     </>
   );
